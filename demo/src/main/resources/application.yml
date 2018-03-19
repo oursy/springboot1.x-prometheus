@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: prometheus-sample1
+endpoints:
+  prometheus:
+    enabled: false
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        pushgateway:
+          enabled: true
+          grouping-keys:
+            instance: ${spring.application.name}-${server.port}-${random.value}
+server:
+  port: 8002
