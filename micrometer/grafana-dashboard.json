@@ -1300,7 +1300,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "system_cpu_usage",
+          "expr": "system_cpu_usage{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -1310,7 +1310,7 @@
           "step": 2400
         },
         {
-          "expr": "process_cpu_usage",
+          "expr": "process_cpu_usage{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -1318,7 +1318,7 @@
           "refId": "B"
         },
         {
-          "expr": "avg_over_time(process_cpu_usage[1h])",
+          "expr": "avg_over_time(process_cpu_usage{application=\"$application\", instance=\"$instance\"}[1h])",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -1417,7 +1417,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "system_load_average_1m",
+          "expr": "system_load_average_1m{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "system-1m",
@@ -1432,7 +1432,7 @@
           "refId": "B"
         },
         {
-          "expr": "system_cpu_count",
+          "expr": "system_cpu_count{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "cpu",
@@ -1530,7 +1530,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_threads_live",
+          "expr": "jvm_threads_live{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "live",
@@ -1539,7 +1539,7 @@
           "step": 2400
         },
         {
-          "expr": "jvm_threads_daemon",
+          "expr": "jvm_threads_daemon{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "daemon",
@@ -1548,7 +1548,7 @@
           "step": 2400
         },
         {
-          "expr": "jvm_threads_peak",
+          "expr": "jvm_threads_peak{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "peak",
@@ -1556,7 +1556,7 @@
           "step": 2400
         },
         {
-          "expr": "process_threads",
+          "expr": "process_threads{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1656,7 +1656,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "process_open_fds",
+          "expr": "process_open_fds{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "open",
@@ -1665,7 +1665,7 @@
           "step": 2400
         },
         {
-          "expr": "process_max_fds",
+          "expr": "process_max_fds{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "max",
@@ -1674,14 +1674,14 @@
           "step": 2400
         },
         {
-          "expr": "process_files_open",
+          "expr": "process_files_open{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "open",
           "refId": "C"
         },
         {
-          "expr": "process_files_max",
+          "expr": "process_files_max{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "max",
@@ -1799,7 +1799,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "increase(logback_events_total[1m])",
+          "expr": "increase(logback_events_total{application=\"$application\", instance=\"$instance\"}[1m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -2187,7 +2187,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(jvm_gc_pause_duration_seconds_count[1m])",
+          "expr": "rate(jvm_gc_pause_duration_seconds_count{application=\"$application\", instance=\"$instance\"}[1m])",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -2195,7 +2195,7 @@
           "refId": "A"
         },
         {
-          "expr": "rate(jvm_gc_pause_seconds_count[1m])",
+          "expr": "rate(jvm_gc_pause_seconds_count{application=\"$application\", instance=\"$instance\"}[1m])",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -2276,7 +2276,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "increase(jvm_gc_pause_duration_seconds_sum[1m])/increase(jvm_gc_pause_duration_seconds_count[1m])",
+          "expr": "increase(jvm_gc_pause_duration_seconds_sum{application=\"$application\", instance=\"$instance\"}[1m])/increase(jvm_gc_pause_duration_seconds_count{application=\"$application\", instance=\"$instance\"}[1m])",
           "format": "time_series",
           "instant": false,
           "intervalFactor": 2,
@@ -2284,7 +2284,7 @@
           "refId": "B"
         },
         {
-          "expr": "jvm_gc_pause_duration_seconds_max",
+          "expr": "jvm_gc_pause_duration_seconds_max{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -2292,7 +2292,7 @@
           "refId": "C"
         },
         {
-          "expr": "increase(jvm_gc_pause_seconds_sum[1m])/increase(jvm_gc_pause_seconds_count[1m])",
+          "expr": "increase(jvm_gc_pause_seconds_sum{application=\"$application\", instance=\"$instance\"}[1m])/increase(jvm_gc_pause_seconds_count{application=\"$application\", instance=\"$instance\"}[1m])",
           "format": "time_series",
           "instant": false,
           "intervalFactor": 2,
@@ -2300,7 +2300,7 @@
           "refId": "A"
         },
         {
-          "expr": "jvm_gc_pause_seconds_max",
+          "expr": "jvm_gc_pause_seconds_max{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -2381,14 +2381,14 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(jvm_gc_memory_allocated_bytes_total[1m])",
+          "expr": "rate(jvm_gc_memory_allocated_bytes_total{application=\"$application\", instance=\"$instance\"}[1m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "allocated",
           "refId": "A"
         },
         {
-          "expr": "rate(jvm_gc_memory_promoted_bytes_total[1m])",
+          "expr": "rate(jvm_gc_memory_promoted_bytes_total{application=\"$application\", instance=\"$instance\"}[1m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "promoted",
@@ -2492,7 +2492,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_classes_loaded",
+          "expr": "jvm_classes_loaded{application=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "loaded",
